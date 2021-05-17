@@ -27,4 +27,57 @@ public class Dog {
 	String breed;
 	int age;
 	boolean isFed;
+	
+	/* 
+	 * Constructors - are used to create objects - "Instantiating a class"
+	 * 
+	 * When a class constructor is run - a new object is created from the class. (Class -> Blueprint for objects.)
+	 * 
+	 * Constructors are really just special methods.
+	 *  - they have no return type
+	 *  - they always have the same name as the class in which they're defined
+	 *  - Every class MUST have at least one constructor (if you don't provide one - the compiler provides a default constructor)
+	 *  - If you do provide one, the default constructor is 'lost'. 
+	 */
+	// No-Args constructor - exactly what the compiler provides as a default constructor
+	public Dog() {
+		
+	}
+	
+	public Dog(String name) {
+		this.name = name;
+	}
+	
+	//Constructors can have parameters (Parameterized Constructor) - and this is how we overload constructors
+	public Dog(String name, String breed, int age) {
+		this.name = name; // the 'this' keyword is used for self-reference - references the object in question - calls the method
+		this.breed = breed;
+		this.age = age;
+		this.isFed = false;
+	}
+	
+	
+	// Methods that are unique to this class (sometimes talked about as behaviors when speaking abstractly)
+	public void bark() {
+		System.out.println("Arf arf!");
+	}
+	
+	// Method Overloading - we can have multiple methods with the same name - as long as they have different number or types of parameters
+	public void bark(int times) {
+		System.out.println("Arf arf x" + times);
+	}
+	
+	public void bark(String volume) {
+		System.out.println("another implementation of the bark method");
+	}
+	
+	@Override
+	public String toString() {
+		return "Dog [name ="+ this.name + ", breed=" + this.breed + ", age=" + this.age +", isFed=" + this.isFed;
+	}
+	
+	public void bark(int times, int i) {
+		System.out.println("another implementation of the bark method");
+	}
+	// Notice that this class has no main() method - we don't need one, because we won't be executing this class
 }
